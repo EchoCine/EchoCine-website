@@ -387,6 +387,60 @@
             transform: scale(1.05);
         }
 
+        /* Video Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            z-index: 1;
+        }
+
+        .video-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+        }
+
+        .video-modal-close:hover {
+            opacity: 1;
+        }
+
         .work-card-overlay {
             position: absolute;
             inset: 0;
@@ -833,51 +887,78 @@
         </div>
         
         <div class="work-grid">
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Nike" class="work-card-image">
+            <!-- Work 1: PEPSI -->
+            <div class="work-card reveal" data-vimeo="1176274184">
+                <div class="work-card-image" style="background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.2);">PEPSI</span>
+                </div>
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
                     <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">Just Do It</h3>
-                    <p class="work-card-brand">Nike</p>
+                    <h3 class="work-card-title">PEPSI BLACK Black Pink</h3>
+                    <p class="work-card-brand">Pepsi</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80" alt="Apple" class="work-card-image">
+            <!-- Work 2: OPPO Super -->
+            <div class="work-card reveal" data-vimeo="1176274142">
+                <div class="work-card-image" style="background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 2.5rem; font-weight: 700; color: rgba(255,255,255,0.2);">OPPO</span>
+                </div>
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
-                    <span class="work-card-category">Brand Film</span>
-                    <h3 class="work-card-title">Think Different</h3>
-                    <p class="work-card-brand">Apple</p>
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">OPPO Super Every Moment 影赛收官片</h3>
+                    <p class="work-card-brand">OPPO</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Mercedes" class="work-card-image">
+            <!-- Work 3: OPPO Reno -->
+            <div class="work-card reveal" data-vimeo="1176273637">
+                <div class="work-card-image" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 2rem; font-weight: 700; color: rgba(255,255,255,0.2);">Reno 14</span>
+                </div>
+                <div class="work-card-play">
+                    <span class="play-icon"></span>
+                </div>
+                <div class="work-card-overlay">
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">M Production x OPPO Reno 14</h3>
+                    <p class="work-card-brand">OPPO</p>
+                </div>
+            </div>
+            
+            <!-- Work 4: Mercedes -->
+            <div class="work-card reveal" data-vimeo="1176273728">
+                <div class="work-card-image" style="background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 50%, #2c3e50 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 2rem; font-weight: 700; color: rgba(255,255,255,0.2);">AMG GT</span>
+                </div>
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
                     <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">The Best or Nothing</h3>
+                    <h3 class="work-card-title">Mercedes AMG GT Family 2020</h3>
                     <p class="work-card-brand">Mercedes-Benz</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80" alt="Coca Cola" class="work-card-image">
+            <!-- Work 5: League of Legends -->
+            <div class="work-card reveal" data-vimeo="1176273422">
+                <div class="work-card-image" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 1.8rem; font-weight: 700; color: rgba(255,255,255,0.2);">LOL 2021</span>
+                </div>
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
-                    <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">Taste the Feeling</h3>
-                    <p class="work-card-brand">Coca Cola</p>
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">League Of Legends 2021 Shenzhen</h3>
+                    <p class="work-card-brand">Riot Games</p>
                 </div>
             </div>
         </div>
@@ -1216,6 +1297,49 @@
             }
             
             lastScroll = currentScroll;
+        });
+
+        // Work card video modal
+        const workCards = document.querySelectorAll('.work-card[data-vimeo]');
+        
+        workCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const vimeoId = card.dataset.vimeo;
+                const modal = document.createElement('div');
+                modal.className = 'video-modal';
+                modal.innerHTML = `
+                    <div class="video-modal-backdrop"></div>
+                    <div class="video-modal-content">
+                        <button class="video-modal-close">&times;</button>
+                        <iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+                
+                // Close modal handlers
+                const closeModal = () => {
+                    modal.remove();
+                    document.body.style.overflow = '';
+                };
+                
+                modal.querySelector('.video-modal-close').addEventListener('click', closeModal);
+                modal.querySelector('.video-modal-backdrop').addEventListener('click', closeModal);
+                
+                // Close on ESC key
+                const escHandler = (e) => {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                };
+                document.addEventListener('keydown', escHandler);
+            });
         });
 
         // Reveal animations on scroll
