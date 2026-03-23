@@ -127,6 +127,38 @@
             width: 100%;
         }
 
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-left: var(--space-6);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .lang-btn {
+            padding: var(--space-1) var(--space-3);
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.875rem;
+        }
+
+        .lang-btn:hover {
+            color: var(--color-text);
+        }
+
+        .lang-btn.active {
+            border-color: var(--color-text);
+            color: var(--color-text);
+        }
+
+        .lang-divider {
+            color: var(--color-text-subtle);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -754,10 +786,15 @@
     <nav class="nav" id="nav">
         <a href="#" class="logo">EchoCine</a>
         <div class="nav-links">
-            <a href="#work" class="nav-link">作品</a>
-            <a href="#services" class="nav-link">服务</a>
-            <a href="#about" class="nav-link">关于</a>
-            <a href="#contact" class="nav-link">联系</a>
+            <a href="#work" class="nav-link" data-i18n="nav.work">作品</a>
+            <a href="#services" class="nav-link" data-i18n="nav.services">服务</a>
+            <a href="#about" class="nav-link" data-i18n="nav.about">关于</a>
+            <a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="zh">CN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
         <div class="menu-toggle" id="menuToggle">
             <span></span>
@@ -775,15 +812,15 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title hero-title-cn">透过屏幕，触及无界</h1>
-            <p class="hero-subtitle">Through Screens, Reach Beyond Borders</p>
+            <h1 class="hero-title hero-title-cn" data-i18n="hero.title">透过屏幕，触及无界</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Through Screens, Reach Beyond Borders</p>
             <button class="hero-cta">
-                <span>观看 reel</span>
+                <span data-i18n="hero.cta">观看 reel</span>
                 <span class="play-icon"></span>
             </button>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll</span>
+            <span data-i18n="hero.scroll">Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
@@ -791,7 +828,7 @@
     <!-- Featured Work Section -->
     <section class="section" id="work">
         <div class="section-header reveal">
-            <h2 class="section-title">精选作品</h2>
+            <h2 class="section-title" data-i18n="work.title">精选作品</h2>
             <p class="section-subtitle">Featured Work</p>
         </div>
         
@@ -846,14 +883,14 @@
         </div>
         
         <div class="section-cta reveal">
-            <a href="#" class="link-arrow">查看全部作品</a>
+            <a href="#" class="link-arrow" data-i18n="work.cta">查看全部作品</a>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="section" id="services">
         <div class="section-header reveal">
-            <h2 class="section-title">服务能力</h2>
+            <h2 class="section-title" data-i18n="services.title">服务能力</h2>
             <p class="section-subtitle">Our Services</p>
         </div>
         
@@ -864,13 +901,13 @@
                     <circle cx="24" cy="24" r="8"/>
                     <path d="M24 20v8M20 24h8"/>
                 </svg>
-                <h3 class="service-title">影视制作</h3>
+                <h3 class="service-title" data-i18n="services.production.title">影视制作</h3>
                 <ul class="service-list">
-                    <li>TVC 电视广告</li>
-                    <li>品牌宣传片</li>
-                    <li>产品广告片</li>
-                    <li>社交媒体短视频</li>
-                    <li>病毒视频 / 纪录片</li>
+                    <li data-i18n="services.production.item1">TVC 电视广告</li>
+                    <li data-i18n="services.production.item2">品牌宣传片</li>
+                    <li data-i18n="services.production.item3">产品广告片</li>
+                    <li data-i18n="services.production.item4">社交媒体短视频</li>
+                    <li data-i18n="services.production.item5">病毒视频 / 纪录片</li>
                 </ul>
             </div>
             
@@ -878,13 +915,13 @@
                 <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M24 4l6 12 12 2-9 9 2 12-11-6-11 6 2-12-9-9 12-2z"/>
                 </svg>
-                <h3 class="service-title">创意策划</h3>
+                <h3 class="service-title" data-i18n="services.creative.title">创意策划</h3>
                 <ul class="service-list">
-                    <li>创意概念开发</li>
-                    <li>脚本撰写</li>
-                    <li>视觉设计</li>
-                    <li>品牌策略</li>
-                    <li>传播方案</li>
+                    <li data-i18n="services.creative.item1">创意概念开发</li>
+                    <li data-i18n="services.creative.item2">脚本撰写</li>
+                    <li data-i18n="services.creative.item3">视觉设计</li>
+                    <li data-i18n="services.creative.item4">品牌策略</li>
+                    <li data-i18n="services.creative.item5">传播方案</li>
                 </ul>
             </div>
             
@@ -893,20 +930,20 @@
                     <path d="M12 20l8-8 8 8M12 28l8 8 8-8"/>
                     <circle cx="24" cy="24" r="20"/>
                 </svg>
-                <h3 class="service-title">后期制作</h3>
+                <h3 class="service-title" data-i18n="services.post.title">后期制作</h3>
                 <ul class="service-list">
-                    <li>剪辑 / 精剪</li>
-                    <li>调色 / 校色</li>
-                    <li>特效 / 动画</li>
-                    <li>配乐 / 音效</li>
-                    <li>字幕 / 包装</li>
+                    <li data-i18n="services.post.item1">剪辑 / 精剪</li>
+                    <li data-i18n="services.post.item2">调色 / 校色</li>
+                    <li data-i18n="services.post.item3">特效 / 动画</li>
+                    <li data-i18n="services.post.item4">配乐 / 音效</li>
+                    <li data-i18n="services.post.item5">字幕 / 包装</li>
                 </ul>
             </div>
         </div>
         
         <div class="services-cta reveal">
-            <a href="#services" class="btn btn-secondary">了解更多</a>
-            <a href="#contact" class="btn btn-primary">开始项目咨询</a>
+            <a href="#services" class="btn btn-secondary" data-i18n="services.learnMore">了解更多</a>
+            <a href="#contact" class="btn btn-primary" data-i18n="services.startProject">开始项目咨询</a>
         </div>
     </section>
 
@@ -928,11 +965,11 @@
     <!-- Contact CTA Section -->
     <section class="contact-section" id="contact">
         <div class="reveal">
-            <h2 class="contact-title">让我们一起创造下一个回响</h2>
-            <p class="contact-subtitle">Let's create the next echo together. 无论是一个大胆的想法，还是一个具体的项目，我们都期待与你交流。</p>
+            <h2 class="contact-title" data-i18n="contact.title">让我们一起创造下一个回响</h2>
+            <p class="contact-subtitle"><span data-i18n="contact.subtitle">Let's create the next echo together. 无论是一个大胆的想法，还是一个具体的项目，我们都期待与你交流。</span></p>
             <a href="mailto:hello@echocine.com" class="contact-email">hello@echocine.com</a>
             <div>
-                <a href="mailto:hello@echocine.com" class="btn btn-primary">开始对话</a>
+                <a href="mailto:hello@echocine.com" class="btn btn-primary" data-i18n="contact.cta">开始对话</a>
             </div>
         </div>
     </section>
@@ -942,11 +979,11 @@
         <div class="footer-content">
             <div>
                 <div class="footer-brand">EchoCine</div>
-                <p class="footer-tagline">透过屏幕，触及无界。<br>Through Screens, Reach Beyond Borders.</p>
+                <p class="footer-tagline" data-i18n="footer.tagline">透过屏幕，触及无界。<br>Through Screens, Reach Beyond Borders.</p>
             </div>
             
             <div>
-                <h4 class="footer-title">上海总部</h4>
+                <h4 class="footer-title" data-i18n="footer.shanghai">上海总部</h4>
                 <ul class="footer-links">
                     <li>123 Creative Street</li>
                     <li>Shanghai, China</li>
@@ -955,7 +992,7 @@
             </div>
             
             <div>
-                <h4 class="footer-title">新加坡分部</h4>
+                <h4 class="footer-title" data-i18n="footer.singapore">新加坡分部</h4>
                 <ul class="footer-links">
                     <li>456 Media Avenue</li>
                     <li>Singapore</li>
@@ -964,7 +1001,7 @@
             </div>
             
             <div>
-                <h4 class="footer-title">关注我们</h4>
+                <h4 class="footer-title" data-i18n="footer.social">关注我们</h4>
                 <ul class="footer-links">
                     <li><a href="#">Instagram</a></li>
                     <li><a href="#">Vimeo</a></li>
@@ -977,14 +1014,186 @@
         <div class="footer-bottom">
             <span>&copy; 2026 EchoCine. All rights reserved.</span>
             <div class="footer-legal">
-                <a href="#">隐私政策</a>
-                <a href="#">使用条款</a>
+                <a href="#" data-i18n="footer.privacy">隐私政策</a>
+                <a href="#" data-i18n="footer.terms">使用条款</a>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // i18n Translations
+        const i18n = {
+            zh: {
+                nav: {
+                    work: '作品',
+                    services: '服务',
+                    about: '关于',
+                    contact: '联系'
+                },
+                hero: {
+                    title: '透过屏幕，触及无界',
+                    subtitle: 'Through Screens, Reach Beyond Borders',
+                    cta: '观看 reel',
+                    scroll: 'Scroll'
+                },
+                work: {
+                    title: '精选作品',
+                    cta: '查看全部作品'
+                },
+                services: {
+                    title: '服务能力',
+                    production: {
+                        title: '影视制作',
+                        item1: 'TVC 电视广告',
+                        item2: '品牌宣传片',
+                        item3: '产品广告片',
+                        item4: '社交媒体短视频',
+                        item5: '病毒视频 / 纪录片'
+                    },
+                    creative: {
+                        title: '创意策划',
+                        item1: '创意概念开发',
+                        item2: '脚本撰写',
+                        item3: '视觉设计',
+                        item4: '品牌策略',
+                        item5: '传播方案'
+                    },
+                    post: {
+                        title: '后期制作',
+                        item1: '剪辑 / 精剪',
+                        item2: '调色 / 校色',
+                        item3: '特效 / 动画',
+                        item4: '配乐 / 音效',
+                        item5: '字幕 / 包装'
+                    },
+                    learnMore: '了解更多',
+                    startProject: '开始项目咨询'
+                },
+                contact: {
+                    title: '让我们一起创造下一个回响',
+                    subtitle: "Let's create the next echo together. 无论是一个大胆的想法，还是一个具体的项目，我们都期待与你交流。",
+                    cta: '开始对话'
+                },
+                footer: {
+                    tagline: '透过屏幕，触及无界。<br>Through Screens, Reach Beyond Borders.',
+                    shanghai: '上海总部',
+                    singapore: '新加坡分部',
+                    social: '关注我们',
+                    privacy: '隐私政策',
+                    terms: '使用条款'
+                }
+            },
+            en: {
+                nav: {
+                    work: 'Work',
+                    services: 'Services',
+                    about: 'About',
+                    contact: 'Contact'
+                },
+                hero: {
+                    title: 'Through Screens, Reach Beyond Borders',
+                    subtitle: 'Premium Film \u0026 Commercial Production',
+                    cta: 'Watch reel',
+                    scroll: 'Scroll'
+                },
+                work: {
+                    title: 'Featured Work',
+                    cta: 'View all works'
+                },
+                services: {
+                    title: 'Our Services',
+                    production: {
+                        title: 'Film Production',
+                        item1: 'TVC Commercials',
+                        item2: 'Brand Films',
+                        item3: 'Product Videos',
+                        item4: 'Social Media Content',
+                        item5: 'Viral Videos / Documentaries'
+                    },
+                    creative: {
+                        title: 'Creative',
+                        item1: 'Concept Development',
+                        item2: 'Scriptwriting',
+                        item3: 'Visual Design',
+                        item4: 'Brand Strategy',
+                        item5: 'Campaign Planning'
+                    },
+                    post: {
+                        title: 'Post Production',
+                        item1: 'Editing / Director\'s Cut',
+                        item2: 'Color Grading',
+                        item3: 'VFX / Animation',
+                        item4: 'Music \u0026 Sound',
+                        item5: 'Titling / Packaging'
+                    },
+                    learnMore: 'Learn More',
+                    startProject: 'Start a Project'
+                },
+                contact: {
+                    title: "Let's Create the Next Echo Together",
+                    subtitle: "Whether it's a bold idea or a specific project, we look forward to hearing from you.",
+                    cta: 'Get in Touch'
+                },
+                footer: {
+                    tagline: 'Through Screens, Reach Beyond Borders.<br>Premium Film \u0026 Commercial Production',
+                    shanghai: 'Shanghai HQ',
+                    singapore: 'Singapore Office',
+                    social: 'Follow Us',
+                    privacy: 'Privacy Policy',
+                    terms: 'Terms of Use'
+                }
+            }
+        };
+
+        // Language Switcher
+        let currentLang = localStorage.getItem('echocine-lang') || 'zh';
+        
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('echocine-lang', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = i18n[lang];
+                
+                for (const k of keys) {
+                    if (value && value[k]) {
+                        value = value[k];
+                    } else {
+                        value = null;
+                        break;
+                    }
+                }
+                
+                if (value) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = value;
+                    } else {
+                        el.innerHTML = value;
+                    }
+                }
+            });
+            
+            // Update active state on language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+        
+        // Initialize language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                updateLanguage(btn.dataset.lang);
+            });
+        });
+        
+        // Set initial language
+        updateLanguage(currentLang);
+
         // Navigation scroll behavior
         const nav = document.getElementById('nav');
         let lastScroll = 0;
