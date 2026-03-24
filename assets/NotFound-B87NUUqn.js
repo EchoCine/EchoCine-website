@@ -1,1 +1,0 @@
-import{j as i,m as n,L as t}from"./index-BiIKixJn.js";function o(){return i.jsxs(n.div,{className:"not-found-page",initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},children:[i.jsx("h1",{children:"404"}),i.jsx("h2",{children:"页面未找到"}),i.jsx("p",{children:"抱歉，您访问的页面不存在。"}),i.jsx(t,{to:"/",className:"home-link",children:"返回首页"})]})}export{o as default};
