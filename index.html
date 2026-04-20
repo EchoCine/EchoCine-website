@@ -387,6 +387,60 @@
             transform: scale(1.05);
         }
 
+        /* Video Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            z-index: 1;
+        }
+
+        .video-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+        }
+
+        .video-modal-close:hover {
+            opacity: 1;
+        }
+
         .work-card-overlay {
             position: absolute;
             inset: 0;
@@ -475,6 +529,97 @@
 
         .link-arrow:hover::after {
             transform: translateX(4px);
+        }
+
+        /* ===== Stills Section ===== */
+        .stills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-4);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .still-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            background: var(--color-surface);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .still-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition-slow);
+        }
+
+        .still-card:hover .still-image {
+            transform: scale(1.05);
+        }
+
+        .still-placeholder {
+            font-size: 2rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .still-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-6);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .still-card:hover .still-overlay {
+            opacity: 1;
+        }
+
+        .still-category {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: var(--space-2);
+        }
+
+        .still-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 400;
+            margin-bottom: var(--space-1);
+            line-height: 1.3;
+        }
+
+        .still-brand {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .stills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-3);
+            }
+            
+            .still-title {
+                font-size: 0.875rem;
+            }
         }
 
         /* ===== Services Section ===== */
@@ -619,6 +764,127 @@
             color: var(--color-accent);
             margin-bottom: var(--space-6);
             display: inline-block;
+        }
+
+        /* ===== About Section ===== */
+        .about-section {
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.02), transparent);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-16);
+        }
+
+        .about-heading {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: var(--space-6);
+            color: var(--color-text);
+        }
+
+        .about-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            max-width: 700px;
+        }
+
+        .about-quote {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--color-text);
+            border-left: 2px solid var(--color-accent);
+            padding-left: var(--space-6);
+            margin: var(--space-8) 0;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-8);
+        }
+
+        .about-feature {
+            padding: var(--space-6);
+            background: var(--color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all var(--transition-fast);
+        }
+
+        .about-feature:hover {
+            border-color: var(--color-accent);
+        }
+
+        .about-feature-number {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            margin-bottom: var(--space-4);
+            display: block;
+        }
+
+        .about-feature h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-2);
+        }
+
+        .about-feature p {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-16);
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .about-stat-number {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--color-accent);
+            margin-bottom: var(--space-2);
+        }
+
+        .about-stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: var(--space-8);
+            }
+
+            .about-quote {
+                font-size: 1.25rem;
+            }
         }
 
         /* ===== Footer ===== */
@@ -833,57 +1099,154 @@
         </div>
         
         <div class="work-grid">
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Nike" class="work-card-image">
+            <!-- Work 1: PEPSI -->
+            <div class="work-card reveal" data-vimeo="1176274184">
+                <img src="https://vumbnail.com/1176274184.jpg" alt="PEPSI BLACK Black Pink" class="work-card-image">
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
                     <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">Just Do It</h3>
-                    <p class="work-card-brand">Nike</p>
+                    <h3 class="work-card-title">PEPSI BLACK Black Pink</h3>
+                    <p class="work-card-brand">Pepsi</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80" alt="Apple" class="work-card-image">
+            <!-- Work 2: OPPO Super -->
+            <div class="work-card reveal" data-vimeo="1176274142">
+                <img src="https://vumbnail.com/1176274142.jpg" alt="OPPO Super Every Moment" class="work-card-image">
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
-                    <span class="work-card-category">Brand Film</span>
-                    <h3 class="work-card-title">Think Different</h3>
-                    <p class="work-card-brand">Apple</p>
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">OPPO Super Every Moment 影赛收官片</h3>
+                    <p class="work-card-brand">OPPO</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Mercedes" class="work-card-image">
+            <!-- Work 3: OPPO Reno -->
+            <div class="work-card reveal" data-vimeo="1176273637">
+                <img src="https://vumbnail.com/1176273637.jpg" alt="OPPO Reno 14" class="work-card-image">
+                <div class="work-card-play">
+                    <span class="play-icon"></span>
+                </div>
+                <div class="work-card-overlay">
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">M Production x OPPO Reno 14</h3>
+                    <p class="work-card-brand">OPPO</p>
+                </div>
+            </div>
+            
+            <!-- Work 4: Mercedes -->
+            <div class="work-card reveal" data-vimeo="1176273728">
+                <img src="https://vumbnail.com/1176273728.jpg" alt="Mercedes AMG GT" class="work-card-image">
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
                     <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">The Best or Nothing</h3>
+                    <h3 class="work-card-title">Mercedes AMG GT Family 2020</h3>
                     <p class="work-card-brand">Mercedes-Benz</p>
                 </div>
             </div>
             
-            <div class="work-card reveal">
-                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80" alt="Coca Cola" class="work-card-image">
+            <!-- Work 5: League of Legends -->
+            <div class="work-card reveal" data-vimeo="1176273422">
+                <img src="https://vumbnail.com/1176273422.jpg" alt="League of Legends" class="work-card-image">
                 <div class="work-card-play">
                     <span class="play-icon"></span>
                 </div>
                 <div class="work-card-overlay">
-                    <span class="work-card-category">Commercial</span>
-                    <h3 class="work-card-title">Taste the Feeling</h3>
-                    <p class="work-card-brand">Coca Cola</p>
+                    <span class="work-card-category">Branding film</span>
+                    <h3 class="work-card-title">League Of Legends 2021 Shenzhen</h3>
+                    <p class="work-card-brand">Riot Games</p>
                 </div>
             </div>
         </div>
         
         <div class="section-cta reveal">
             <a href="#" class="link-arrow" data-i18n="work.cta">查看全部作品</a>
+        </div>
+    </section>
+
+    <!-- Stills / 平面作品 Section -->
+    <section class="section" id="stills">
+        <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="stills.title">平面作品</h2>
+            <p class="section-subtitle">Stills & Key Visuals</p>
+        </div>
+        
+        <div class="stills-grid">
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #D4A574 0%, #E8D4C4 100%);">
+                    <span class="still-placeholder">Lulu 01</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+            
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #C9B896 0%, #DDD4B8 100%);">
+                    <span class="still-placeholder">Lulu 02</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+            
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #B8A88A 0%, #CCC2A8 100%);">
+                    <span class="still-placeholder">Lulu 03</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+            
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #A89878 0%, #BCB296 100%);">
+                    <span class="still-placeholder">Lulu 04</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+            
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #9A8A6A 0%, #AEA484 100%);">
+                    <span class="still-placeholder">Lulu 05</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+            
+            <div class="still-card reveal">
+                <div class="still-image" style="background: linear-gradient(135deg, #8C7C5C 0%, #A09474 100%);">
+                    <span class="still-placeholder">Lulu 06</span>
+                </div>
+                <div class="still-overlay">
+                    <span class="still-category">Stills</span>
+                    <h3 class="still-title">LULULEMON 2024 SSG</h3>
+                    <p class="still-brand">Leung Yoyo × Lululemon</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-cta reveal">
+            <a href="#" class="link-arrow">查看全部平面作品</a>
         </div>
     </section>
 
@@ -970,6 +1333,66 @@
             <a href="mailto:hello@echocine.com" class="contact-email">hello@echocine.com</a>
             <div>
                 <a href="mailto:hello@echocine.com" class="btn btn-primary" data-i18n="contact.cta">开始对话</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="about-container">
+            <div class="about-header reveal">
+                <h2 class="section-title" data-i18n="about.title">关于 EchoCine</h2>
+                <p class="section-subtitle">About Us</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-story reveal">
+                    <h3 class="about-heading" data-i18n="about.story.title">我们的故事</h3>
+                    <p class="about-text" data-i18n="about.story.text">EchoCine 是一支充满热情的影视创作团队。我们保持年轻的心态与源源不断的创造力，怀揣着对解决问题的激情，为客户提供全方位的影视解决方案。对我们而言，影视不仅仅是拍摄，更是一次次与合作者激发灵感、碰撞创意的旅程。</p>
+                </div>
+                
+                <div class="about-values reveal">
+                    <h3 class="about-heading" data-i18n="about.values.title">核心价值观</h3>
+                    <blockquote class="about-quote" data-i18n="about.values.quote">"每一帧回响的不仅是所见，更是所感"<br>"Every frame echoes not just what is seen, but what is felt"</blockquote>
+                </div>
+                
+                <div class="about-features reveal">
+                    <div class="about-feature">
+                        <span class="about-feature-number">01</span>
+                        <h4 data-i18n="about.features.bilingual.title">双语团队</h4>
+                        <p data-i18n="about.features.bilingual.desc">中英文无缝切换，服务国际品牌</p>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-number">02</span>
+                        <h4 data-i18n="about.features.young.title">年轻活力</h4>
+                        <p data-i18n="about.features.young.desc">保持创造力，拥抱新技术</p>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-number">03</span>
+                        <h4 data-i18n="about.features.solution.title">解决问题</h4>
+                        <p data-i18n="about.features.solution.desc">不只是执行，更提供解决方案</p>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-number">04</span>
+                        <h4 data-i18n="about.features.global.title">全球视野</h4>
+                        <p data-i18n="about.features.global.desc">立足上海，放眼世界</p>
+                    </div>
+                </div>
+                
+                <div class="about-stats reveal">
+                    <div class="about-stat">
+                        <span class="about-stat-number">100+</span>
+                        <span class="about-stat-label" data-i18n="about.stats.projects">完成项目</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-number">50+</span>
+                        <span class="about-stat-label" data-i18n="about.stats.clients">品牌客户</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-number">2</span>
+                        <span class="about-stat-label" data-i18n="about.stats.offices">办公地点</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1082,6 +1505,43 @@
                     social: '关注我们',
                     privacy: '隐私政策',
                     terms: '使用条款'
+                },
+                stills: {
+                    title: '平面作品'
+                },
+                about: {
+                    title: '关于 EchoCine',
+                    story: {
+                        title: '我们的故事',
+                        text: 'EchoCine 回响影视是一支充满热情的影视创作团队。我们保持年轻的心态与源源不断的创造力，怀揣着对解决问题的激情，为客户提供全方位的影视解决方案。对我们而言，影视不仅仅是拍摄，更是一次次与合作者激发灵感、碰撞创意的旅程。我们期待在每一个项目中，创造出独特而有力的作品，让回响（Echo）与影像（Cine）交织，传递无限可能。'
+                    },
+                    values: {
+                        title: '品牌理念',
+                        quote: '"每一帧回响的不仅是所见，更是所感"<br>"Every frame echoes not just what is seen, but what is felt"'
+                    },
+                    features: {
+                        bilingual: {
+                            title: '东西方桥梁',
+                            desc: '连接东方洞察与全球共鸣，多元文化视角'
+                        },
+                        young: {
+                            title: '年轻活力',
+                            desc: '保持创造力，拥抱新技术'
+                        },
+                        solution: {
+                            title: '解决问题',
+                            desc: '不只是执行，更提供全方位解决方案'
+                        },
+                        global: {
+                            title: '双城布局',
+                            desc: '上海 | 新加坡，立足亚洲，放眼世界'
+                        }
+                    },
+                    stats: {
+                        projects: '完成项目',
+                        clients: '品牌客户',
+                        offices: '办公地点'
+                    }
                 }
             },
             en: {
@@ -1142,6 +1602,43 @@
                     social: 'Follow Us',
                     privacy: 'Privacy Policy',
                     terms: 'Terms of Use'
+                },
+                stills: {
+                    title: 'Stills'
+                },
+                about: {
+                    title: 'About EchoCine',
+                    story: {
+                        title: 'Our Story',
+                        text: 'EchoCine is a passionate team of filmmakers, fueled by youthful energy, creativity, and a relentless drive for problem-solving. We provide clients with comprehensive film and media solutions, going beyond just shooting. To us, filmmaking is a journey of inspiration—where collaboration sparks new ideas and unique stories are brought to life. With every project, we aim to create powerful works where echoes meet cinema, resonating with lasting impact.'
+                    },
+                    values: {
+                        title: 'Our Philosophy',
+                        quote: '"Every frame echoes not just what is seen, but what is felt"'
+                    },
+                    features: {
+                        bilingual: {
+                            title: 'East-West Bridge',
+                            desc: 'Connecting Eastern insights with global resonance'
+                        },
+                        young: {
+                            title: 'Young & Dynamic',
+                            desc: 'Stay creative, embrace new technologies'
+                        },
+                        solution: {
+                            title: 'Problem Solvers',
+                            desc: 'Beyond execution, we provide comprehensive solutions'
+                        },
+                        global: {
+                            title: 'Dual Hubs',
+                            desc: 'Shanghai | Singapore, based in Asia, eyes on the world'
+                        }
+                    },
+                    stats: {
+                        projects: 'Projects Completed',
+                        clients: 'Brand Clients',
+                        offices: 'Office Locations'
+                    }
                 }
             }
         };
@@ -1216,6 +1713,49 @@
             }
             
             lastScroll = currentScroll;
+        });
+
+        // Work card video modal
+        const workCards = document.querySelectorAll('.work-card[data-vimeo]');
+        
+        workCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const vimeoId = card.dataset.vimeo;
+                const modal = document.createElement('div');
+                modal.className = 'video-modal';
+                modal.innerHTML = `
+                    <div class="video-modal-backdrop"></div>
+                    <div class="video-modal-content">
+                        <button class="video-modal-close">&times;</button>
+                        <iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+                
+                // Close modal handlers
+                const closeModal = () => {
+                    modal.remove();
+                    document.body.style.overflow = '';
+                };
+                
+                modal.querySelector('.video-modal-close').addEventListener('click', closeModal);
+                modal.querySelector('.video-modal-backdrop').addEventListener('click', closeModal);
+                
+                // Close on ESC key
+                const escHandler = (e) => {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                };
+                document.addEventListener('keydown', escHandler);
+            });
         });
 
         // Reveal animations on scroll
