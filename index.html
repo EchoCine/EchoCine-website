@@ -91,10 +91,14 @@
         }
 
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 36px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -902,9 +906,13 @@
         }
 
         .footer-brand {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
             margin-bottom: var(--space-4);
+        }
+        
+        .footer-brand img {
+            height: 32px;
+            width: auto;
+            display: block;
         }
 
         .footer-tagline {
@@ -1050,7 +1058,7 @@
 <body>
     <!-- Navigation -->
     <nav class="nav" id="nav">
-        <a href="#" class="logo">EchoCine</a>
+        <a href="#" class="logo"><img src="logo.jpg" alt="EchoCine"></a>
         <div class="nav-links">
             <a href="#work" class="nav-link" data-i18n="nav.work">作品</a>
             <a href="#services" class="nav-link" data-i18n="nav.services">服务</a>
@@ -1401,7 +1409,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div>
-                <div class="footer-brand">EchoCine</div>
+                <div class="footer-brand"><img src="logo.jpg" alt="EchoCine"></div>
                 <p class="footer-tagline" data-i18n="footer.tagline">透过屏幕，触及无界。<br>Through Screens, Reach Beyond Borders.</p>
             </div>
             
