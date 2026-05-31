@@ -14,5 +14,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Debug: Check if React renders
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var root = document.getElementById('root');
+          if (root && root.children.length === 0) {
+            root.innerHTML = '<div style="padding:40px;color:white;font-family:sans-serif;">' +
+              '<h1>React 加载失败</h1>' +
+              '<p>请检查浏览器控制台是否有错误信息。</p>' +
+              '</div>';
+          }
+        }, 2000);
+      });
+    </script>
   </body>
 </html>
